@@ -1,17 +1,17 @@
-module mac32(acc, clk, rst, en, clear_acc, a, b);
-	input clk, rst, en, clear_acc;
+module mac32(acc, CLK, RST, EN, clear_acc, a, b);
+	input CLK, RST, EN, clear_acc;
 	input signed[31:0] a, b;
 	output reg signed[63:0] acc;
 
 	wire signed[63:0] ab;
 	assign ab = a * b;
 
-	always @(posedge clk or posedge rst) begin
-		if(rst)
+	always @(posedge CLK or posedge RST) begin
+		if(RST)
 			acc <= 64'd0;
 		else if(clear_acc)
 			acc <= 64'd0;
-		else if(en)
+		else if(EN)
 			acc <= acc + ab;
 	end
 endmodule
