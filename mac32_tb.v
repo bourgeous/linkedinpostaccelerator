@@ -8,7 +8,7 @@ module mac32_tb;
 	reg signed [63:0] expected;
 	reg failed;
 
-	mac32 u00(accumulator, clk, reset, mac_en, acc_clear,
+	mac32 DUT(accumulator, clk, reset, mac_en, acc_clear,
 			  operand_a, operand_b);
 
 	initial clk = 0;
